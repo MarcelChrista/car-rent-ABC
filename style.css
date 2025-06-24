@@ -1,0 +1,294 @@
+/* === FONT & ROOT VARIABLES === */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-gradient: linear-gradient(45deg, #0d47a1, #1976d2);
+    --accent-color: #1e88e5;
+    --success-color: #43a047;
+    --danger-color: #e53935;
+    
+    --bg-light: #f4f7f9;
+    --bg-white: #ffffff;
+    --border-color: #e0e0e0;
+    --border-color-active: #1e88e5;
+
+    --text-dark: #212121;
+    --text-light: #616161;
+    --text-on-primary: #ffffff;
+
+    --shadow-light: rgba(0, 0, 0, 0.05);
+    --shadow-medium: rgba(0, 0, 0, 0.1);
+    
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+}
+
+/* === GENERAL STYLING === */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+}
+
+section {
+    background-color: var(--bg-white);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 20px var(--shadow-light);
+}
+
+/* === HEADER === */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--primary-gradient);
+    color: var(--text-on-primary);
+    border-radius: var(--border-radius-md);
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px var(--shadow-medium);
+}
+.logo-image {
+    height: 80px;
+    width: auto;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+header h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+header p {
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+/* === CAR LIST (UPDATED) === */
+.car-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.car-card {
+    background-color: var(--bg-white);
+    border: 2px solid var(--border-color); /* Ubah ketebalan border */
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    overflow: hidden;
+}
+.car-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px var(--shadow-medium);
+}
+/* Style untuk kartu yang aktif/dipilih */
+.car-card.active {
+    border-color: var(--border-color-active);
+    box-shadow: 0 8px 25px rgba(30, 136, 229, 0.2);
+}
+.car-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.car-card-content {
+    padding: 20px;
+}
+.car-card-content h3 {
+    margin: 0 0 10px 0;
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+.car-card-content .price {
+    font-weight: 600;
+    color: var(--success-color);
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+/* Collapsible Content Styling */
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding-top 0.4s ease-out;
+}
+/* Saat kartu aktif, buka kontennya */
+.car-card.active .collapsible-content {
+    max-height: 300px; /* Cukup besar untuk menampung konten */
+    padding-top: 20px; /* Beri jarak saat terbuka */
+}
+
+.rental-details {
+    display: flex;
+    flex-direction: column; /* Ubah menjadi kolom agar lebih rapi */
+    gap: 15px;
+}
+.rental-details label {
+    font-weight: 400;
+    font-size: 0.9em;
+    margin-bottom: 3px;
+    display: block;
+}
+
+/* === FORMS & BUTTONS (UPDATED) === */
+.select-car-btn {
+    width: 100%;
+    padding: 10px 15px;
+    font-weight: 600;
+    background: var(--accent-color);
+    color: var(--text-on-primary);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.select-car-btn:hover {
+    transform: translateY(-2px);
+}
+.select-car-btn.btn-cancel {
+    background: var(--danger-color);
+}
+
+#hitung-total-btn, #simpan-pesanan-btn {
+    padding: 14px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-on-primary);
+    background: var(--primary-gradient);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+#hitung-total-btn:hover, #simpan-pesanan-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.2);
+}
+#simpan-pesanan-btn {
+    background: var(--success-color);
+}
+
+input[type="text"], input[type="number"], input[type="date"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.2s ease-in-out;
+    background-color: var(--bg-light);
+}
+input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.15);
+}
+input.invalid {
+    border-color: var(--danger-color);
+    background-color: #fff8f8;
+}
+.error-message {
+    color: var(--danger-color);
+    font-size: 0.875em;
+    min-height: 1.2em;
+    display: block;
+    margin-top: 15px;
+}
+
+/* === SUMMARY & HISTORY (No Major Changes) === */
+#ringkasan-pesanan ul { list-style-type: none; }
+#ringkasan-pesanan li {
+    background-color: var(--bg-light);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: var(--border-radius-sm);
+    border-left: 5px solid var(--accent-color);
+}
+#total-harga-keseluruhan {
+    margin-top: 25px;
+    font-size: 1.75rem;
+    text-align: right;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+.hidden { display: none; }
+.subtitle {
+    color: var(--text-light);
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+.booking-item {
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: var(--border-radius-md);
+    position: relative;
+    background: linear-gradient(to right, #ffffff, #f9fafb);
+}
+.booking-item .timestamp {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+.booking-item .customer-name {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+}
+.hapus-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--danger-color);
+    color: white;
+    width: auto;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+    header h1 { font-size: 2rem; }
+    section { padding: 20px; }
+}
+
+/* === FOOTER === */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}

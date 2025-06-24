@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental mobil ABC</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="https://png.pngtree.com/png-vector/20190129/ourmid/pngtree-sports-car-silhouette-simple-logo-png-image_380510.jpg" alt="Logo Perusahaan ABC" class="logo-image">
+            
+            <h1>Rental Mobil ABC</h1>
+            <p>Solusi perjalanan Anda dengan armada terbaik dan modern.</p>
+        </header>
+
+        <main>
+            <section id="pilihan-mobil">
+                <h2>1. Pilih Mobil & Tentukan Jadwal Sewa</h2>
+                <div id="daftar-mobil" class="car-list">
+                    </div>
+            </section>
+
+            <section id="form-pemesanan">
+                <h2>2. Isi Data Diri & Hitung Total</h2>
+                <div class="customer-form">
+                    <label for="nama-pelanggan">Nama Pelanggan:</label>
+                    <input type="text" id="nama-pelanggan" placeholder="Masukkan nama Anda">
+                    <small class="error-message" id="nama-error"></small>
+                    <button id="hitung-total-btn">Hitung Total Biaya</button>
+                </div>
+            </section>
+            
+            <section id="ringkasan-wrapper" class="hidden">
+                <h2>Ringkasan Pesanan Anda</h2>
+                <div id="ringkasan-pesanan">
+                    </div>
+                <h3 id="total-harga-keseluruhan"></h3>
+                <button id="simpan-pesanan-btn">Simpan Pemesanan & Konfirmasi</button>
+            </section>
+
+            <section id="riwayat">
+                <h2>Riwayat Pemesanan Anda</h2>
+                <p class="subtitle">(Data diambil dari penyimpanan lokal browser Anda)</p>
+                <div id="riwayat-pemesanan">
+                    </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Perusahaan ABC. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
